@@ -1,47 +1,41 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Welcome from "./screens/Welcome";
-import SelectQuiz from "./screens/SelectQuiz";
-import QuizPage from "./screens/QuizPage";
-import Result from "./screens/Result";
+import HomeScreen from "./screens/HomeScreen";
+import MainScreen from "./screens/MainScreen";
 
 const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
-          name="Welcome"
-          component={Welcome}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SelectQuiz"
-          component={SelectQuiz}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="QuizPage"
-          component={QuizPage}
+          name="Home"
+          component={HomeScreen}
           options={{
-            title: "Questions",
+            title: "Home",
             headerStyle: {
-              backgroundColor: "#fff",
+              backgroundColor: "#007BFF", // Background color of the navigation bar
             },
-            headerTintColor: "#000",
+            headerTintColor: "#fff", // Text color of the navigation bar
             headerTitleStyle: {
-              color: "#000",
               fontWeight: "bold",
             },
           }}
         />
         <Stack.Screen
-          name="Result"
-          component={Result}
+          name="ToDoList"
+          component={MainScreen}
           options={{
-            headerShown: false,
+            title: "To-Do List",
+            headerStyle: {
+              backgroundColor: "#007BFF", // Background color of the navigation bar
+            },
+            headerTintColor: "#fff", // Text color of the navigation bar
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
           }}
         />
       </Stack.Navigator>
